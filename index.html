@@ -69,6 +69,7 @@ body.is-globe .top{position:relative;background:transparent;border-bottom-color:
 .pill:active{transform:translateY(2px);box-shadow:0 1px 0 var(--edge)}
 .pill.hot{background:var(--sun);color:var(--sun-ink)}
 @media(max-width:620px){.xp .mini,.xp .t{display:none}.pill.theme{display:none}.brand{font-size:1.1rem}.top{gap:8px}.xp{flex:0 0 auto;padding-right:10px}.pill{padding:7px 12px}}
+@media(max-width:480px){.pill .lbl{display:none}.pill.hot{padding:7px 12px;font-size:1.05rem}}
 @media(max-width:430px){.xp .txt{display:none}.xp{padding:4px}body.is-globe .brand{padding-right:12px}}
 
 /* ---------- Globe screen ---------- */
@@ -111,7 +112,7 @@ body.is-globe .top{position:relative;background:transparent;border-bottom-color:
 #loader{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;color:var(--ink);font-weight:800;background:linear-gradient(180deg,#46b0ff,#d3f1ff);z-index:3;text-align:center;padding:24px}
 #loader .ring{width:54px;height:54px;border-radius:50%;border:6px solid #fff;border-top-color:var(--sun);animation:spin .9s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-#card{position:absolute;left:max(16px,env(safe-area-inset-left,0px));bottom:116px;width:min(390px,calc(100% - 32px));border-radius:24px;padding:18px 18px 16px;z-index:4;
+#card{position:absolute;left:max(16px,env(safe-area-inset-left,0px));bottom:158px;width:min(390px,calc(100% - 32px));border-radius:24px;padding:18px 18px 16px;z-index:4;
   background:#fff;color:var(--ink);border:3px solid hsl(var(--h) 85% 44%);box-shadow:0 6px 0 hsl(var(--h) 85% 44%),0 20px 32px rgba(29,43,83,.25);--city:hsl(var(--h) 85% 38%);animation:pop .25s ease-out}
 #card{padding-top:44px!important}
 #card .mas svg{border-radius:50%}
@@ -138,7 +139,7 @@ body.is-globe .top{position:relative;background:transparent;border-bottom-color:
 #strip button.next .n{border-color:var(--sun);background:#fff6cf;animation:bob 1s ease-in-out infinite}
 #strip button.sel{background:hsl(var(--h) 95% 90%)}
 @media(max-width:700px){
-  #card{left:0;right:0;bottom:104px;width:auto;margin-inline:max(12px,env(safe-area-inset-left,0px)) max(12px,env(safe-area-inset-right,0px))}
+  #card{left:0;right:0;bottom:150px;width:auto;margin-inline:max(12px,env(safe-area-inset-left,0px)) max(12px,env(safe-area-inset-right,0px))}
   .zoom{display:none}
   #strip{justify-content:flex-start}
   .hint{max-width:72%}.hint b{font-size:1.2rem}
@@ -328,7 +329,7 @@ body.is-globe #toast{bottom:130px}
   <span class="spacer"></span>
   <div class="chips"><span class="chip fire off" id="chip-fire" title="Sequência de dias estudando">🔥 <b id="streak-n">0</b></span><span class="chip goal" id="chip-goal" title="Meta diária de XP">🎯 <b id="goal-t">0/20</b></span></div>
   <div class="xp" aria-live="polite"><span class="badge" aria-hidden="true">★</span><span class="txt"><b id="xp-level">Tourist</b><span class="t" id="xp-text">0 XP · 0 de 8 destinos</span><span class="mini"><span id="xp-bar"></span></span></span></div>
-  <button class="pill hot" type="button" data-act="passport">🛂 Passaporte</button>
+  <button class="pill hot" type="button" data-act="passport">🛂<span class="lbl"> Passaporte</span></button>
   <button class="pill icon" type="button" data-act="mute" id="mute-btn" aria-label="Desligar sons">🔊</button>
   <button class="pill theme" type="button" data-act="theme">Tema</button>
 </header>
