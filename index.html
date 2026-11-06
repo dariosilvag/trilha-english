@@ -268,6 +268,52 @@ pre.report{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,M
 .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:6px}
 .pgrid label{font-weight:800;font-size:.92rem}
 .pact{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+
+.chips{display:flex;gap:8px}
+.chip{display:flex;align-items:center;gap:6px;background:var(--surface);border:2px solid var(--edge);border-radius:99px;padding:5px 12px;box-shadow:0 3px 0 var(--edge);font-weight:800;font-size:.95rem;white-space:nowrap}
+.chip b{font-family:var(--font-display);font-weight:600}
+.chip.fire.off{filter:grayscale(1);opacity:.75}
+.chip.goal.done{background:var(--ok-bg)}
+.pill.icon{padding:7px 12px}
+@media(max-width:620px){.chip.goal,.pill.icon{display:none}.chip{padding:4px 10px}}
+.hearts{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px}
+.hearts .hl{display:inline-flex;gap:4px;font-size:1.5rem;line-height:1}.hearts .hl .off{opacity:.5}
+.nohearts{border:2px solid var(--bad);background:var(--bad-bg);color:var(--bad);border-radius:20px;padding:14px 16px;margin:0 0 16px;font-weight:800;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.q.lock{opacity:.5}
+.bx{border:2px solid var(--edge);border-radius:22px;padding:18px;margin:0 0 16px;box-shadow:0 4px 0 var(--edge);background:var(--surface)}
+.bx .qt{font-weight:800;margin:0 0 12px;font-size:1.08rem}
+.bx .row2{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 12px}
+.bx .pt-line{font-family:var(--font-display);font-size:1.25rem;font-weight:500;margin:0 0 12px}
+.en-ok{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin:0 0 6px;color:var(--ok)}
+.built{min-height:58px;border-bottom:3px dashed var(--line);padding:6px 0 10px;display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px;align-content:flex-start}
+.pool{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.wc{border:2px solid var(--edge);background:var(--surface);border-radius:14px;padding:8px 14px;font-weight:800;font-size:1rem;cursor:pointer;box-shadow:0 3px 0 var(--edge);min-height:44px;transition:transform .12s,box-shadow .12s}
+.wc:active{transform:translateY(2px);box-shadow:0 1px 0 var(--edge)}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mt>div{display:flex;flex-direction:column;gap:10px;min-width:0}
+.mb{border:2px solid var(--edge);background:var(--surface);border-radius:14px;padding:10px 12px;font-weight:800;cursor:pointer;box-shadow:0 3px 0 var(--edge);min-height:48px;text-align:center;transition:transform .12s}
+.mb.sel{background:var(--subj-bg);border-color:var(--subj);box-shadow:0 3px 0 var(--subj)}
+.mb.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);box-shadow:none;opacity:.8}
+.mb.bad{background:var(--bad-bg);border-color:var(--bad);animation:shake .35s}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;z-index:95;pointer-events:none;transition:opacity .25s,transform .25s;
+  background:var(--ctl);color:var(--ctl-ink);border:2px solid var(--edge);border-radius:99px;padding:11px 20px;font-weight:800;box-shadow:0 5px 0 var(--edge);max-width:calc(100vw - 32px);text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+body.is-globe #toast{bottom:130px}
+.duo{display:grid;gap:16px;margin:6px 0 20px}
+.duo-top{display:flex;gap:16px 24px;flex-wrap:wrap;align-items:center}
+.big-streak{display:grid;font-family:var(--font-display)}.big-streak b{font-size:2.4rem;font-weight:700;line-height:1}.big-streak span{font-size:.95rem;color:var(--muted);font-family:var(--font-body);font-weight:700}
+.goalbox{display:grid;gap:6px;min-width:200px;flex:1}
+.gbar{height:14px;border-radius:99px;background:var(--line);border:2px solid var(--edge);overflow:hidden}.gbar span{display:block;height:100%;background:var(--sun)}
+.goalbox small{color:var(--muted);font-weight:700}
+.gsel{display:flex;gap:8px;flex-wrap:wrap}.gsel button{border:2px solid var(--edge);background:var(--surface);border-radius:99px;padding:5px 14px;font-weight:800;cursor:pointer;box-shadow:0 2px 0 var(--edge)}
+.gsel button[aria-pressed="true"]{background:var(--sun);color:var(--sun-ink)}
+.week{display:flex;gap:8px;flex-wrap:wrap}
+.wd{display:grid;gap:3px;place-items:center;font-weight:800;font-size:.75rem;color:var(--muted)}
+.wd i{width:36px;height:36px;border-radius:50%;border:2px solid var(--edge);display:grid;place-items:center;background:var(--bg);font-style:normal}
+.wd.on i{background:var(--verb-bg)}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:8px}
+.badge2{border:2px dashed var(--line);border-radius:16px;padding:10px 8px;text-align:center;font-size:.82rem;font-weight:800;color:var(--muted);filter:grayscale(1);opacity:.65;min-width:0}
+.badge2 b{display:block;font-size:2rem;line-height:1.2}.badge2 small{display:block;font-weight:600;font-size:.72rem}
+.badge2.got{border:2px solid var(--edge);filter:none;opacity:1;color:var(--ink);background:var(--note-bg);box-shadow:0 3px 0 var(--edge)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.cloud{transform:translateX(12vw)}}
 
 </style>
@@ -277,8 +323,10 @@ pre.report{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,M
 <header class="top" id="top">
   <a class="brand" href="#mundo" aria-label="Trilha English, planeta">Trilha English</a>
   <span class="spacer"></span>
+  <div class="chips"><span class="chip fire off" id="chip-fire" title="Sequência de dias estudando">🔥 <b id="streak-n">0</b></span><span class="chip goal" id="chip-goal" title="Meta diária de XP">🎯 <b id="goal-t">0/20</b></span></div>
   <div class="xp" aria-live="polite"><span class="badge" aria-hidden="true">★</span><span class="txt"><b id="xp-level">Tourist</b><span class="t" id="xp-text">0 XP · 0 de 8 destinos</span><span class="mini"><span id="xp-bar"></span></span></span></div>
   <button class="pill hot" type="button" data-act="passport">🛂 Passaporte</button>
+  <button class="pill icon" type="button" data-act="mute" id="mute-btn" aria-label="Desligar sons">🔊</button>
   <button class="pill theme" type="button" data-act="theme">Tema</button>
 </header>
 
@@ -566,6 +614,8 @@ const LESSONS=[
 const KEY='trilha-english-v2';
 let store={name:'',done:{},best:{},xp:0,first:{},missed:{},ans:{},written:{},doubts:{},stamp:{}};
 try{const r=localStorage.getItem(KEY);if(r)store=Object.assign(store,JSON.parse(r))}catch(e){}
+function fixStore(){store.days=store.days||{};store.goal=store.goal||20;store.badges=store.badges||{};store.bonus=store.bonus||{};store.maxCombo=store.maxCombo||0;store.mute=!!store.mute}
+fixStore();
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}};
 const LEVELS=[['Tourist',0],['Explorer',100],['Traveler',250],['Ambassador',450]];
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -665,6 +715,7 @@ function updateHeader(){
   $('#xp-text').textContent=store.xp+' XP · '+doneCount()+' de 8 destinos';
   $('#xp-bar').style.width=li.pct+'%';
   const bd=$('.xp .badge');if(bd)bd.textContent=li.name==='Tourist'?'★':li.name==='Explorer'?'🧭':li.name==='Traveler'?'✈️':'🏆';
+  updateChips();
 }
 
 /* =====================  GLOBO 3D  ===================== */
@@ -957,6 +1008,145 @@ function selectStop(id,fly=true){
 }
 function refreshGlobeUI(){updateHeader();updatePins();renderStrip();renderCard();updateGlobeState()}
 
+/* =====================  RECURSOS ESTILO DUOLINGO  ===================== */
+const todayKey=()=>dayKey(0);
+function dayKey(off){const d=new Date();d.setDate(d.getDate()-off);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function streak(){let i=store.days[dayKey(0)]!==undefined?0:1,n=0;while(store.days[dayKey(i)]!==undefined){n++;i++}return n}
+function touchDay(){const k=todayKey();if(store.days[k]===undefined){store.days[k]=0;save()}}
+function updateChips(){
+  const f=$('#streak-n');if(!f)return;const n=streak(),t=store.days[todayKey()]||0,g=store.goal||20;
+  f.textContent=n;$('#chip-fire').classList.toggle('off',n===0);
+  $('#goal-t').textContent=Math.min(t,g)+'/'+g;$('#chip-goal').classList.toggle('done',t>=g);
+  const m=$('#mute-btn');if(m){m.textContent=store.mute?'🔇':'🔊';m.setAttribute('aria-label',store.mute?'Ligar sons':'Desligar sons')}
+}
+/* sons curtos (WebAudio) */
+let AC;
+function tone(f,d,t=0,type='sine',v=.12){
+  if(store.mute)return;
+  try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+    const o=AC.createOscillator(),g=AC.createGain(),t0=AC.currentTime+t;o.type=type;o.frequency.value=f;
+    g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(v,t0+.01);g.gain.exponentialRampToValueAtTime(.001,t0+d);
+    o.connect(g);g.connect(AC.destination);o.start(t0);o.stop(t0+d+.02)}catch(e){}
+}
+const sfx={ok(){tone(660,.12);tone(880,.18,.09)},bad(){tone(210,.25,0,'triangle',.15)},win(){[523,659,784,1047].forEach((f,i)=>tone(f,.22,i*.1))}};
+let toastT;
+function toast(msg){
+  let el=$('#toast');if(!el){el=document.createElement('div');el.id='toast';el.setAttribute('role','status');document.body.append(el)}
+  el.textContent=msg;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),2800);
+}
+function addXP(n){
+  const lv0=levelInfo().name,g=store.goal||20,k=todayKey(),before=store.days[k]||0;
+  store.xp+=n;store.days[k]=before+n;
+  if(before<g&&before+n>=g){toast('🎯 Meta diária batida! +'+n+' XP');sfx.win();confetti()}
+  else if(levelInfo().name!==lv0){toast('⬆️ Novo nível: '+levelInfo().name+'!');sfx.win();confetti()}
+  save();checkBadges();updateChips();
+}
+const BADGES=[
+ ['first','🛂','Primeiro carimbo','Conclua uma lição',()=>doneCount()>=1],
+ ['fire3','🔥','3 dias seguidos','Estude 3 dias seguidos',()=>streak()>=3],
+ ['fire7','🌋','7 dias seguidos','Estude 7 dias seguidos',()=>streak()>=7],
+ ['perfect','💯','Nota máxima','Acerte tudo numa lição',()=>LESSONS.some(l=>store.best[l.id]===l.qs.length)],
+ ['combo10','⚡','10 seguidas','Faça 10 acertos seguidos',()=>store.maxCombo>=10],
+ ['ear','🎧','Bom ouvido','Conclua 5 desafios de áudio',()=>Object.keys(store.bonus).filter(k=>/-listen$/.test(k)).length>=5],
+ ['writer','✍️','Escritor','Nota 9 ou mais na correção por IA',()=>Object.values(store.written).some(w=>w&&w.nota>=9)],
+ ['world','🌍','Volta ao mundo','Conclua as 8 lições',()=>doneCount()>=8]];
+function checkBadges(){
+  BADGES.forEach(b=>{if(!store.badges[b[0]]&&b[4]()){store.badges[b[0]]=todayKey();save();setTimeout(()=>{toast('🏅 Conquista: '+b[2]);sfx.win()},900)}});
+}
+function duoPassportHTML(){
+  const n=streak(),t=store.days[todayKey()]||0,g=store.goal||20;
+  const week=[6,5,4,3,2,1,0].map(o=>{const d=new Date();d.setDate(d.getDate()-o);const on=store.days[dayKey(o)]!==undefined;
+    return '<span class="wd'+(on?' on':'')+'"><i>'+(on?'🔥':'')+'</i>'+'DSTQQSS'[d.getDay()]+'</span>'}).join('');
+  return '<div class="duo"><div class="duo-top"><div class="big-streak"><b>🔥 '+n+'</b><span>'+(n===1?'dia seguido':'dias seguidos')+'</span></div>'+
+    '<div class="goalbox"><span class="eyebrow">Meta diária</span><div class="gbar"><span style="width:'+Math.min(100,t/g*100)+'%"></span></div><small>'+Math.min(t,g)+' de '+g+' XP hoje</small>'+
+    '<div class="gsel" role="group" aria-label="Escolher meta diária">'+[10,20,30].map(v=>'<button type="button" data-act="goal" data-v="'+v+'" aria-pressed="'+(g===v)+'">'+v+' XP</button>').join('')+'</div></div>'+
+    '<button class="btn ghost" type="button" data-act="mute">'+(store.mute?'🔇 Sons desligados':'🔊 Sons ligados')+'</button></div>'+
+    '<div class="week" aria-label="Últimos 7 dias">'+week+'</div>'+
+    '<div><span class="eyebrow">Conquistas · '+Object.keys(store.badges).length+' de '+BADGES.length+'</span><div class="badges">'+
+    BADGES.map(b=>'<div class="badge2'+(store.badges[b[0]]?' got':'')+'"><b>'+b[1]+'</b>'+esc(b[2])+'<small>'+esc(b[3])+'</small></div>').join('')+'</div></div></div>';
+}
+/* vidas e sequência de acertos */
+const H={},MAXH=5;let combo=0;
+const hearts=()=>cur===0?MAXH:(H[cur]===undefined?MAXH:H[cur]);
+function paintHearts(){
+  const el=$('#hearts');if(!el)return;const h=hearts();
+  el.innerHTML='<span class="hl" role="img" aria-label="Vidas: '+h+' de '+MAXH+'">'+Array.from({length:MAXH},(_,i)=>'<span class="'+(i<h?'on':'off')+'">'+(i<h?'❤️':'🖤')+'</span>').join('')+'</span><span class="note">Cada erro custa uma vida. Sem vidas, releia a explicação.</span>';
+  const dead=h<=0,np=$('#nohearts');if(np)np.hidden=!dead;
+  $$('#p-practice .q').forEach(q=>{const open=!q.querySelector('.fb.on');q.classList.toggle('lock',dead&&open);if(dead&&open)q.querySelectorAll('button,input').forEach(b=>b.disabled=true)});
+}
+/* desafios extras: ouvir, montar a frase e combinar pares */
+let bx={};
+const cleanS=s=>norm(s).replace(/[.,!?;:]/g,'');
+function seeded(arr,seed){const a=arr.slice();let s=seed*9301+49297;for(let i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;const j=Math.floor(s/233280*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function bonusSetup(){
+  const ex=LESSONS[cur-1].ex,n=ex.length;
+  const li=(cur*2)%n;let ai=(li+3)%n;
+  for(let k=0;k<n;k++){const w=ex[(ai+k)%n][1].replace(/[.?!]+$/,'').split(' ').length;if(w>=3&&w<=9&&(ai+k)%n!==li){ai=(ai+k)%n;break}}
+  const pairs=ex.slice(0,Math.min(4,n)).map((e,i)=>({pid:i,en:e[1].replace(/[.?!]+$/,''),pt:e[2].replace(/[.?!]+$/,'')}));
+  return {li,ai,pairs};
+}
+function renderBonus(){
+  const box=$('#bonus');if(!box||cur===0)return;
+  const L=LESSONS[cur-1],S=bx.S||(bx.S=bonusSetup()),ex=L.ex,done=k=>!!store.bonus[cur+'-'+k];
+  const ok='<p class="fb on ok"><b>Concluído! </b>+5 XP</p>';
+  // ouvir e escrever
+  const le=ex[S.li];
+  let h='<div class="bx"><p class="qt">🎧 Ouça e escreva o que você ouviu</p>'+
+    '<div class="row2"><button class="play" type="button" data-say="'+esc(le[1])+'">🔊 Ouvir</button></div>'+
+    (done('listen')?'<p class="en-ok">'+esc(le[1])+'</p>'+ok:'<form class="fill bxf" data-bx="listen"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Escreva a frase em inglês"><button type="submit">Conferir</button></form><p class="fb" id="fb-listen" role="status"></p>')+'</div>';
+  // montar a frase
+  const ae=ex[S.ai],toks=ae[1].replace(/[.?!]+$/,'').split(' ');
+  if(!bx.arr)bx.arr={pool:seeded(toks.map((w,i)=>({w,id:i})),cur+7),picked:[]};
+  const A=bx.arr;
+  h+='<div class="bx"><p class="qt">🧩 Monte a frase em inglês</p><p class="pt-line">“'+esc(ae[2])+'”</p>';
+  if(done('arrange'))h+='<p class="en-ok">'+esc(ae[1])+'</p>'+ok;
+  else h+='<div class="built" aria-label="Sua frase">'+A.picked.map(id=>'<button class="wc" type="button" data-bw="'+id+'">'+esc(toks[id])+'</button>').join('')+'</div>'+
+    '<div class="pool">'+A.pool.filter(o=>!A.picked.includes(o.id)).map(o=>'<button class="wc" type="button" data-bw="'+o.id+'">'+esc(o.w)+'</button>').join('')+'</div>'+
+    '<div class="row2"><button class="btn" type="button" data-act="bx-check"'+(A.picked.length?'':' disabled')+'>Conferir</button><button class="btn ghost" type="button" data-act="bx-clear">Limpar</button></div><p class="fb" id="fb-arrange" role="status"></p>';
+  h+='</div>';
+  // combinar pares
+  const P=S.pairs;
+  if(!bx.m)bx.m={sel:null,ok:[],bad:null,L:seeded(P,cur+3),R:seeded(P,cur+11)};
+  const M=bx.m;
+  h+='<div class="bx"><p class="qt">🔗 Combine os pares</p>';
+  if(done('match'))h+=P.map(p=>'<p class="en-ok">'+esc(p.en)+' = '+esc(p.pt)+'</p>').join('')+ok;
+  else{const cell=(side,p)=>{const k=side+p.pid,isOk=M.ok.includes(p.pid),sel=M.sel===k,bad=M.bad&&M.bad.includes(k);
+      return '<button class="mb'+(isOk?' ok':'')+(sel?' sel':'')+(bad?' bad':'')+'" type="button" data-bm="'+k+'"'+(isOk?' disabled':'')+'>'+esc(side==='L'?p.en:p.pt)+'</button>'};
+    h+='<div class="mt"><div>'+M.L.map(p=>cell('L',p)).join('')+'</div><div>'+M.R.map(p=>cell('R',p)).join('')+'</div></div>'}
+  h+='</div>';
+  box.innerHTML=h;
+}
+function bxDone(k){
+  const key=cur+'-'+k;touchDay();
+  if(!store.bonus[key]){store.bonus[key]=1;addXP(5);sfx.win();save()}
+  renderBonus();checkBadges();
+}
+function bxPick(id){
+  const A=bx.arr;if(!A)return;const i=A.picked.indexOf(id);
+  if(i>=0)A.picked.splice(i,1);else A.picked.push(id);
+  tone(520,.06,0,'sine',.08);renderBonus();
+}
+function bxCheck(){
+  const S=bx.S,A=bx.arr,ae=LESSONS[cur-1].ex[S.ai],toks=ae[1].replace(/[.?!]+$/,'').split(' ');
+  const got=A.picked.map(id=>toks[id]).join(' ');touchDay();
+  if(cleanS(got)===cleanS(toks.join(' '))){sfx.ok();bxDone('arrange')}
+  else{sfx.bad();const f=$('#fb-arrange');f.className='fb on bad';f.innerHTML='<b>Quase!</b> Confira a ordem das palavras e tente de novo.'}
+}
+function bxListen(v){
+  const le=LESSONS[cur-1].ex[bx.S.li][1];touchDay();
+  if(cleanS(v)===cleanS(le)){sfx.ok();bxDone('listen')}
+  else{sfx.bad();const f=$('#fb-listen');f.className='fb on bad';f.innerHTML='<b>Quase!</b> Ouça de novo, devagar, e tente outra vez.'}
+}
+function bxMatch(k){
+  const M=bx.m;if(!M)return;touchDay();
+  if(M.sel===null||M.sel[0]===k[0]){M.sel=k;M.bad=null;tone(520,.06,0,'sine',.08);renderBonus();return}
+  const a=M.sel,b=k;M.sel=null;
+  if(a.slice(1)===b.slice(1)){M.ok.push(+a.slice(1));M.bad=null;sfx.ok();
+    if(M.ok.length===bx.S.pairs.length){renderBonus();bxDone('match');return}}
+  else{M.bad=[a,b];sfx.bad();setTimeout(()=>{if(bx.m===M){M.bad=null;renderBonus()}},500)}
+  renderBonus();
+}
+
 /* =====================  LIÇÕES  ===================== */
 let cur=1,tab='explain',tmpAns={},REVIEW=null;
 function lessonCtx(){
@@ -974,6 +1164,7 @@ function coverSVG(){return '<svg class="deco" viewBox="0 0 400 300" preserveAspe
 const fmtCoord=(v,p,n)=>Math.abs(v).toFixed(2)+'°'+(v>=0?p:n);
 
 function renderLesson(){
+  bx={};
   const {L,ans}=lessonCtx();
   const isRev=cur===0,s=isRev?null:STOPS[cur-1];
   const el=$('#view-lesson');
@@ -1022,7 +1213,7 @@ function renderLesson(){
     ${isRev?'':`<section class="pane ${tab==='explain'?'on':''}" id="p-explain">${L.explain}${cmp}</section>
     <section class="pane ${tab==='ex'?'on':''}" id="p-ex"><h2>Ouça e repita em voz alta</h2>${exHTML}</section>`}
     <section class="pane ${tab==='practice'?'on':''}" id="p-practice"><h2>${isRev?'Vamos corrigir o que ficou para trás':'Vamos praticar'}</h2>
-      <p>${isRev?'Cada acerto tira a questão da lista de revisão.':'Cada resposta é corrigida na hora, com a explicação. Acertando 70% ou mais, você ganha o carimbo de '+esc(s.city)+'.'}</p>${qHTML}
+      <p>${isRev?'Cada acerto tira a questão da lista de revisão.':'Cada resposta é corrigida na hora, com a explicação. Acertando 70% ou mais, você ganha o carimbo de '+esc(s.city)+'.'}</p>${isRev?'':'<div class="hearts" id="hearts"></div><div class="nohearts" id="nohearts" hidden><span>💔 Acabaram as vidas! Releia a explicação e volte para tentar de novo.</span><button class="btn" type="button" data-act="refill">Reler e recarregar</button></div>'}${qHTML}${isRev?'':'<h2>Desafios extras</h2><p class="note">Ouça, monte frases e combine pares. Cada desafio concluído vale +5 XP.</p><div id="bonus"></div>'}
       <div class="score" id="score"><div><div class="eyebrow">Sua nota</div><strong id="score-n">0 / ${L.qs.length}</strong><span class="stars" id="stars" aria-hidden="true">${starsHTML(0)}</span><div class="note" id="score-msg">Responda as questões para ver o resultado.</div></div>
         <button class="btn ghost" type="button" data-act="reset">${isRev?'Atualizar lista':'Refazer a prática'}</button></div>
       <div class="stamp-banner" id="stamp-banner"><span>Carimbo conquistado: ${isRev?'':esc(s.city)}.</span><button class="btn" type="button" data-act="back">Voltar ao planeta</button></div></section>
@@ -1035,6 +1226,7 @@ function renderLesson(){
   Object.keys(ans).forEach(i=>paint(+i));
   updateScore(true);
   if(!isRev&&tab==='delivery')refreshReport();
+  paintHearts();renderBonus();
 }
 let hidePT=false;
 
@@ -1050,12 +1242,15 @@ function paint(i){
 }
 function answer(i,pick){
   const {L,ans,persist}=lessonCtx(),q=L.qs[i];if(i in ans)return;
+  if(persist&&cur!==0&&hearts()<=0)return;
   const ok=q.o?pick===q.a:q.f.map(norm).includes(norm(pick));
-  ans[i]={ok,pick};
+  ans[i]={ok,pick};touchDay();
+  if(ok){combo++;if(combo>store.maxCombo)store.maxCombo=combo;sfx.ok();if([3,5,8,10,15].includes(combo))toast('🔥 '+combo+' acertos seguidos!')}
+  else{combo=0;sfx.bad();if(cur!==0)H[cur]=Math.max(0,hearts()-1)}
   const qid=q._qid||(L.id+'-'+i);
-  if(ok){if(store.first[qid]===undefined){store.first[qid]=1;store.xp+=10}delete store.missed[qid]}
+  if(ok){if(store.first[qid]===undefined){store.first[qid]=1;addXP(10)}delete store.missed[qid]}
   else{if(store.first[qid]===undefined)store.first[qid]=2;store.missed[qid]=1}
-  save();paint(i);updateScore();updateHeader();
+  save();paint(i);updateScore();updateHeader();paintHearts();
 }
 function updateScore(silent){
   const {L,ans,persist}=lessonCtx(),total=L.qs.length,n=Object.keys(ans).length,ok=Object.values(ans).filter(x=>x.ok).length;
@@ -1066,7 +1261,7 @@ function updateScore(silent){
   if(!persist){$('#score-msg').textContent=ok===total?'Tudo certo. Sua lista de revisão está limpa.':'Faltam acertos. Atualize a lista e tente de novo.';return}
   if(store.best[cur]==null||ok>store.best[cur])store.best[cur]=ok;
   const pass=ok/total>=.7;
-  if(pass&&!store.done[cur]){store.done[cur]=true;store.xp+=20;store.stamp[cur]=new Date().toISOString();if(!silent)confetti()}
+  if(pass&&!store.done[cur]){store.done[cur]=true;addXP(20);store.stamp[cur]=new Date().toISOString();if(!silent)confetti()}
   save();updateHeader();
   $('#score-msg').textContent=pass?'Lição concluída. Ótimo trabalho.':'Você precisa de pelo menos 70% para concluir. Releia a explicação e refaça a prática.';
   $('#stamp-banner').classList.toggle('on',pass);
@@ -1093,7 +1288,7 @@ async function aiCheck(i){
     if(!isFinite(nota)||typeof r.corrigida!=='string')throw {code:'invalid_json'};
     const res={text,nota,corrigida:r.corrigida.slice(0,600),comentario:String(r.comentario||'').slice(0,700)};
     store.written[k]=res;
-    if(nota>=7&&store.first['w'+k]===undefined){store.first['w'+k]=1;store.xp+=15}
+    if(nota>=7&&store.first['w'+k]===undefined){store.first['w'+k]=1;addXP(15)}
     save();updateHeader();box.innerHTML=aiHTML(res);
   }catch(e){
     const m={not_granted:'A correção por IA não está liberada neste aparelho. Seu texto foi salvo e vai no relatório.',sampling_disabled:'A correção por IA não está disponível nesta conta. Seu texto foi salvo.',
@@ -1106,7 +1301,7 @@ async function aiCheck(i){
 function reportText(){
   const d=new Date(),pad=n=>String(n).padStart(2,'0'),li=levelInfo();
   const out=['RELATÓRIO · TRILHA ENGLISH','Aluno: '+(store.name||'(sem nome)'),'Data: '+pad(d.getDate())+'/'+pad(d.getMonth()+1)+'/'+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes()),
-    'Nível: '+li.name+' · '+store.xp+' XP','Destinos concluídos: '+doneCount()+' de 8',''];
+    'Nível: '+li.name+' · '+store.xp+' XP','Sequência: '+streak()+' dia(s) · Conquistas: '+Object.keys(store.badges).length+' de '+BADGES.length,'Destinos concluídos: '+doneCount()+' de 8',''];
   LESSONS.forEach(L=>{const s=STOPS[L.id-1],b=store.best[L.id];
     out.push('Lição '+L.id+' · '+s.city+' · '+L.title+' ('+L.sub+'): '+(b!=null?'melhor nota '+b+'/'+L.qs.length:'não iniciada')+(store.done[L.id]?' · concluída':''));
     L.wr.forEach((w,i)=>{const r=store.written[L.id+'-'+i];if(r&&r.text){out.push('   Frase '+(i+1)+': "'+r.text.replace(/\n/g,' / ')+'"'+(r.nota!=null?' · IA: '+r.nota+'/10 · corrigida: "'+r.corrigida.replace(/\n/g,' / ')+'"':''))}});
@@ -1137,6 +1332,7 @@ function renderPassport(){
     <button class="close" type="button" data-act="closepassport" aria-label="Fechar passaporte">✕</button></div>
     <div class="stamps">${STOPS.map(s=>{const g=store.done[s.id],d=store.stamp[s.id]?new Date(store.stamp[s.id]).toLocaleDateString('pt-BR'):'';
       return `<div class="stamp ${g?'got':''}" style="--h:${s.h};--r:${((s.id*37)%11-5)}deg"><span class="no">${s.id}</span><span class="cn">${esc(s.city)}</span>${g?`<span class="big">CONCLUÍDO</span><small>${d} · ${store.best[s.id]}/${LESSONS[s.id-1].qs.length}</small>`:'<small>Aguardando carimbo</small>'}</div>`}).join('')}</div>
+    ${duoPassportHTML()}
     <div class="pgrid"><div><label for="pp-name">Seu nome</label><input class="txt" id="pp-name" type="text" autocomplete="name" value="${esc(store.name||'')}" placeholder="Nome completo"></div>
       <div><label>Revisão</label><button class="btn ghost" type="button" data-act="review" ${Object.keys(store.missed).length?'':'disabled'}>Revisar erros (${Object.keys(store.missed).length})</button></div></div>
     <div class="pact"><button class="btn" type="button" data-act="copy">Copiar relatório</button><button class="btn ghost dl-only" type="button" data-act="download">Baixar relatório</button>
@@ -1174,6 +1370,8 @@ document.addEventListener('click',e=>{
   if(t.dataset.speed){speed=+t.dataset.speed;$$('[data-speed]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.speed===speed));return}
   if(t.dataset.tab){tab=t.dataset.tab;renderLesson();return}
   if(t.dataset.o!==undefined&&t.dataset.q!==undefined){answer(+t.dataset.q,t.dataset.o);return}
+  if(t.dataset.bw!==undefined){bxPick(+t.dataset.bw);return}
+  if(t.dataset.bm!==undefined){bxMatch(t.dataset.bm);return}
   const a=t.dataset.act;if(!a)return;
   switch(a){
     case 'pin':case 'strip':selectStop(+t.dataset.id);break;
@@ -1188,21 +1386,28 @@ document.addEventListener('click',e=>{
     case 'back':location.hash='mundo';break;
     case 'prev':go(cur-1);break;
     case 'next':go(cur+1);break;
-    case 'reset':{if(cur===0){buildReview()}else{store.ans[cur]={};save()}renderLesson();const pp=$('#p-practice');if(pp)pp.scrollIntoView({block:'start'});break}
+    case 'bx-check':bxCheck();break;
+    case 'bx-clear':if(bx.arr){bx.arr.picked=[];renderBonus()}break;
+    case 'refill':H[cur]=MAXH;tab='explain';renderLesson();window.scrollTo(0,0);break;
+    case 'mute':store.mute=!store.mute;save();updateChips();if(!$('#passport').hidden)renderPassport();break;
+    case 'goal':store.goal=+t.dataset.v;save();updateChips();renderPassport();break;
+    case 'reset':{H[cur]=MAXH;combo=0;if(cur===0){buildReview()}else{store.ans[cur]={};save()}renderLesson();const pp=$('#p-practice');if(pp)pp.scrollIntoView({block:'start'});break}
     case 'trtoggle':hidePT=!hidePT;renderLesson();break;
     case 'ai':aiCheck(+t.dataset.i);break;
     case 'copy':copyReport();break;
     case 'download':downloadReport();break;
     case 'review':location.hash='revisao';break;
     case 'resetall':{
-      if(t.dataset.arm){store={name:store.name,done:{},best:{},xp:0,first:{},missed:{},ans:{},written:{},doubts:{},stamp:{}};save();updateHeader();renderPassport();refreshGlobeUI()}
+      if(t.dataset.arm){store={name:store.name,done:{},best:{},xp:0,first:{},missed:{},ans:{},written:{},doubts:{},stamp:{}};fixStore();save();updateHeader();renderPassport();refreshGlobeUI()}
       else{t.dataset.arm='1';t.textContent='Confirmar: apagar tudo';setTimeout(()=>{if(t.isConnected){delete t.dataset.arm;t.textContent='Apagar meu progresso'}},5000)}
       break}
   }
 });
 document.addEventListener('submit',e=>{
   const f=e.target.closest('form.fill');if(!f)return;e.preventDefault();
-  const v=f.querySelector('input').value;if(!v.trim())return;answer(+f.dataset.q,v);
+  const v=f.querySelector('input').value;if(!v.trim())return;
+  if(f.dataset.bx==='listen'){bxListen(v);return}
+  answer(+f.dataset.q,v);
 });
 let wrT;
 document.addEventListener('input',e=>{
