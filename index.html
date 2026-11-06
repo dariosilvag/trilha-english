@@ -579,10 +579,30 @@ function levelInfo(){let i=0;LEVELS.forEach((l,k)=>{if(store.xp>=l[1])i=k});cons
 
 /* =====================  ÁUDIO  ===================== */
 let speed=0.88;
+let VOICES=[];
+function loadVoices(){try{VOICES=speechSynthesis.getVoices()||[]}catch(e){VOICES=[]}}
+if('speechSynthesis' in window){loadVoices();try{speechSynthesis.addEventListener('voiceschanged',loadVoices)}catch(e){speechSynthesis.onvoiceschanged=loadVoices}}
+function pickVoice(){
+  loadVoices();
+  const en=VOICES.filter(v=>/^en[-_]/i.test(v.lang));
+  return en.find(v=>/^en[-_]US/i.test(v.lang)&&/samantha|google us|aaron|nicky|allison|ava|evan|zoe|siri/i.test(v.name))||en.find(v=>/^en[-_]US/i.test(v.lang))||en[0]||null;
+}
+function audioNote(msg){const n=$('#audio-note');if(n){n.textContent=msg;n.style.color='var(--bad)'}}
 function say(text){
-  if(!('speechSynthesis' in window))return;
-  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text.replace(/[’]/g,"'"));u.lang='en-US';u.rate=speed;
-    const v=speechSynthesis.getVoices().find(v=>/^en[-_]US/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}
+  if(!('speechSynthesis' in window)){audioNote('Este navegador não tem áudio em inglês. Tente o Chrome ou o Safari atualizados.');return}
+  try{
+    const ss=speechSynthesis;
+    if(ss.speaking||ss.pending)ss.cancel();
+    const u=new SpeechSynthesisUtterance(String(text).replace(/[’]/g,"'"));
+    u.lang='en-US';u.rate=speed;u.pitch=1;u.volume=1;
+    const v=pickVoice();if(v){u.voice=v;u.lang=v.lang}
+    let started=false;
+    u.onstart=()=>{started=true;const n=$('#audio-note');if(n){n.textContent='O áudio usa a voz em inglês do seu aparelho. Se não tocar, confira o volume e o modo silencioso.';n.style.color=''}};
+    u.onerror=e=>{if(e&&(e.error==='canceled'||e.error==='interrupted'))return;audioNote('Não consegui tocar o áudio. Confira se o aparelho não está no modo silencioso e se há uma voz em inglês instalada.')};
+    // o Safari/iOS descarta o speak() logo depois do cancel(): resume e fala no próximo ciclo
+    setTimeout(()=>{try{ss.resume()}catch(e){}ss.speak(u);
+      setTimeout(()=>{if(!started&&!ss.speaking&&!ss.pending)audioNote('O aparelho não respondeu ao áudio. Confira o volume, o modo silencioso e se existe uma voz em inglês instalada.')},1500)},ss.speaking?60:0);
+  }catch(e){audioNote('Não consegui tocar o áudio neste aparelho.')}
 }
 
 /* =====================  CAPACIDADES (IA e download)  ===================== */
@@ -977,7 +997,7 @@ function renderLesson(){
       <div class="grp"><button type="button" data-act="trtoggle" aria-pressed="${!hidePT}">Tradução</button></div></div>
     <div class="ex">${L.ex.map(e=>`<article><span class="when">${esc(e[0])}</span><span class="en">${esc(e[1])}</span><span class="pt">${esc(e[2])}</span>
       <button class="play" type="button" data-say="${esc(e[1])}" aria-label="Ouvir: ${esc(e[1])}">🔊 Ouvir</button></article>`).join('')}</div>
-    <p class="note" style="margin-top:12px">O áudio usa a voz em inglês do seu aparelho. Se não tocar, confira o volume.</p>`;
+    <p class="note" id="audio-note" style="margin-top:12px">O áudio usa a voz em inglês do seu aparelho. Se não tocar, confira o volume e o modo silencioso.</p>`;
   const qHTML=L.qs.length?L.qs.map((q,i)=>{
     const done=i in ans;
     const body=q.o?`<div class="opts">${q.o.map(o=>`<button type="button" data-q="${i}" data-o="${esc(o)}" ${done?'disabled':''}>${esc(o)}</button>`).join('')}</div>`
